@@ -1,0 +1,12 @@
+{
+    "geode": "3.0.0",
+    "version": "1.0.0",
+    "id": "yourname.predictive_buffer",
+    "name": "Predictive Input Buffer",
+    "developer": "YourName",
+    "description": "A 3-tick predictive input buffer designed for mobile play to forgive early and late taps.",
+    "supported": {
+        "platforms": ["ios", "android", "win", "mac"]
+    },
+    "dependencies": []
+}
