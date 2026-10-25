@@ -17,11 +17,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Geode CLI
-        uses: geode-sdk/install-geode-cli@main
+      - name: Setup Geode SDK
+        uses: geode-sdk/action@main
 
-      - name: Build Mod for iOS
-        run: geode build --platform iOS --output .
+      - name: Build Mod
+        run: geode build --platform iOS
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
