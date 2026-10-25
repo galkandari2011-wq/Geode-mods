@@ -21,7 +21,7 @@ jobs:
         uses: geode-sdk/action@main
 
       - name: Build Mod
-        run: geode build --platform iOS
+        run: geode build --platform iOS --config Release
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
