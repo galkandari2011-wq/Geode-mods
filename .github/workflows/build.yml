@@ -11,22 +11,30 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - name: iOS
+            os: macos-latest
+            target: iOS
+
+    name: Build ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Geode SDK
-        uses: geode-sdk/action@main
-        with:
-          geode: v3.0.0
-
       - name: Build the mod
-        run: geode build --platform iOS
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: ${{ matrix.config.target }}
+          path: .
+          combine: true
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: geode-mod-ios
+          name: geode-mod-${{ matrix.config.target }}
           path: build/*.geode
