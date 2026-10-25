@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.25)
+project(PredictiveBuffer CXX)
+
+find_package(Geode REQUIRED)
+
+add_geode_mod(PredictiveBuffer)
+
+target_sources(PredictiveBuffer PRIVATE
+    main.cpp
+)
